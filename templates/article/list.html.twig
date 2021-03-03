@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello ArticleController!{% endblock %}
+
+{% block body %}
+
+	<div class="example-wrapper">
+
+		<h2>Hello {{ subtitle }}! 🐇</h2>
+		<h3>Hello {{ description }}! ✔️✔️✔️✔️✔️✔️</h3>
+		<p>This friendly message is coming from:</p>
+		<h3>Your humble servitor 🎩</h3>
+
+		<h3>This week find our wonderful treasures:</h3>
+{% for article in articles %}
+    	<h1>{{ article.title }}</h1>
+   		<h2>{{ article.description }}</h2>
+    	<img src="{{ article.image }}" height="200px" width="auto"/>
+    	<button class="blue"><a href="{{ path ('detail', {'id': article.id }) }}">Blue pill</a></button>
+    	<button class="red"><a href="/article/{{ article.id }} style">Red pill</a></button>
+{% endfor %}
+	</div>
+
+	    <h4>Sfblog &copy; 2021</h4>
+
+
+{% endblock %}
